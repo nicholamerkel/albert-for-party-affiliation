@@ -1,3 +1,6 @@
 [submodule "twitter-scraper"]
 	path = twitter-scraper
 	url = https://github.com/nicholamerkel/twitter-scraper.git
+[submodule "Albert-Sentiment-Analysis"]
+	path = Albert-Sentiment-Analysis
+	url = https://github.com/nicholamerkel/Albert-Sentiment-Analysis.git
