@@ -129,9 +129,9 @@ Below are few examples of the tweets used for prediction...
 ### Actual Results
 ###### 0 for Democrat, 1 for Republican
 
-tweet | tweeter | link | topic | actual | predicted | correct? | confidence
----- | :----:| :----: | :----: | :----: | :----: | :----: | :----:
-Transgender people everywhere deserve to live in dignity and security. Together, we will end hatred and bigotry towards trans Americans and build a nation based on love, justice and civil rights. #TransDayOfVisibility | @BernieSanders | https://twitter.com/BernieSanders/status/1245079639258812417 |	0	| 0	| Y	| 0.8406 | lgbtq
+tweet | tweeter (link)  | topic | actual | predicted | correct? | confidence
+---- | :----:| :----: | :----: | :----: | :----: | :----:
+Transgender people everywhere deserve to live in dignity and security. Together, we will end hatred and bigotry towards trans Americans and build a nation based on love, justice and civil rights. #TransDayOfVisibility | [@BernieSanders](https://twitter.com/BernieSanders/status/1245079639258812417)|	0	| 0	| Y	| 0.8406 | lgbtq
 
 
 ### Discussion of Results
