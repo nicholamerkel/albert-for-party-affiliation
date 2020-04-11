@@ -127,7 +127,7 @@ Below are few examples of the tweets used for prediction...
  -->
 
 ## Actual Results
-###### 0 for Democrat, 1 for Republican
+###### \*0 for Democrat, 1 for Republican\*
 
 tweet | tweeter (link) | topic | actual | predicted | correct? | confidence
 ------- | :----:| :----: | :---: | :---: | :---: | :----:
@@ -143,11 +143,32 @@ President Trump & his Big Oil buddies want to allow offshore drilling in more th
 Trump’s new acting intelligence director is an unqualified hack willing to risk our national security to sell out to foreign powers. My bill to #EndCorruptionNow  would ban Americans like Richard Grenell from getting paid to lobby for foreign govts. | [@SenWarren](https://twitter.com/SenWarren/status/1232745435166584837) | corruption / foreign govts. | 0 | 0 | Y | 0.88869
 I mean, that's fine, but I'm not sure what Biden has to offer beyond vague statements and botched basement interviews	| [@BenShapiro](https://twitter.com/benshapiro/status/1245448978373603328) | biden | 1 | 1 | Y | 0.83639			
 Feminists need to stop making the Coronavirus a gender issue like Helen Lewis in her article for @TheAtlantic. Men are dying at higher rates than women, and we are all just trying to survive. | [@classicallyabby / RT @BenShapiro](https://twitter.com/classicallyabby/status/1245442162340368384)	| feminism | 1 | 0 | N | 0.75995
-'#COVIDー19 kills more men than women. But today’s gender activists are so addicted to the “women-are-victims” narrative, nothing can open their hearts &minds to human reality. Gender ideology is a powedul drug. It robs true believers of reason & mercy. Read this thread & weep. https://twitter.com/heatherbarr1/status/1238056470777868294 |	[@CHSommers / RT @BenShapiro](https://twitter.com/CHSommers/status/1245397912378642442)	| feminism	| 1 |	1 |	Y |	0.7881			
+\#COVIDー19 kills more men than women. But today’s gender activists are so addicted to the “women-are-victims” narrative, nothing can open their hearts &minds to human reality. Gender ideology is a powedul drug. It robs true believers of reason & mercy. Read this thread & weep. https://twitter.com/heatherbarr1/status/1238056470777868294 |	[@CHSommers / RT @BenShapiro](https://twitter.com/CHSommers/status/1245397912378642442)	| feminism	| 1 |	1 |	Y |	0.7881			
 Life is a right. In fact, unlike abortion, which is not a right, life is specified directly in the Declaration of Independence, as well as the Fifth and Fourteenth Amendments, and remains the most fundamental right of all. #AbortionIsAWomansRight	| [@BenShapiro](https://twitter.com/benshapiro/status/1129038284162834432) | abortion |	1 |	1 |	Y |	0.73817													
 "GOP: Okay, we'll pass this insanely large spending bill because we have to stop the imminent collapse of the American economy.<br>Democrats: Sounds good.<br>Pelosi: I WANT WINDMILLS AND CORPORATE DIVERSITY QUOTAS<br>Democrats: WE WANT WINDMILLS AND CORPORATE DIVERSITY QUOTAS" |[ @BenShapiro](https://twitter.com/benshapiro/status/1242152881022623744)	| covid |	1 |	0 |	N |	0.86141			
 Republicans are working to help the American people. Democrats are politicizing this pandemic to advance a radical agenda.	| [@NewtGingrich](https://twitter.com/newtgingrich/status/1242535079810826246) | covid	| 1 | 0 |	N |	0.88494
 "“It’s strange out here. It’s like what the US would be like in 2021 If Bernie was in charge.” @ChrisPlanteShow"	| [@NewtGingrich](https://twitter.com/newtgingrich/status/1239908092403474433)	| bernie	| 1 |	1	| Y |	0.83383													
+Biden in last night’s debate rushed to match Sanders on the left. In the middle of a pandemic he would deport no one. He favors tax paid abortion. Police should not report criminal aliens. He would shut down not just fracking but the oil industry.Insanity disguised as a campaign.	| [@NewtGingrich](https://twitter.com/newtgingrich/status/1239447132559597568) | biden / immigration | 1 | 0 | N | 0.86458
+Every day this [impeachment trial] goes on, the Democrats look smaller, more political, more destructive of America |	[@NewtGingrich](https://twitter.com/newtgingrich/status/1222928712083132417) | impeachment | 1 | 1 | Y | 0.67411				
+Want to kill a robust economy? Then, raise taxes on companies and the middle class. We know this is what Democrats would do, because they have all said it.	| [@NewtGingrich](https://twitter.com/newtgingrich/status/1221865454962003968) | taxes / corp. | 1 | 0 | N | 0.88977
+
+
+and headlines...
+headline | news org. (link) | topic | actual | predicted | correct? | confidence
+------- | :----:| :----: | :---: | :---: | :---: | :----:
+FDA Relaxes ‘Blood Ban’ For Gay Men, But LGBTQ Advocates Want Bigger Change |	[@HuffPost](https://twitter.com/HuffPost/status/1245847151458095104) | lgbtq | 0 | 0 | Y |	0.72859			
+Trump Announces CDC Mask Guidelines But Says He Probably Won’t Follow Them | [@HuffPost](https://www.huffpost.com/entry/trump-mask-cdc-guidelines-voluntary_n_5e87b11cc5b6cc1e47753b7e) | trump	| 0 |	1 | N |	0.83786					
+Legal Sex Workers And Others In Adult Industry Denied Coronavirus Aid	| [@HuffPost](https://www.huffpost.com/entry/legal-sex-workers-denied-coronavirus-aid_n_5e86287ac5b6d302366ca912) |	sex workers / covid / health care | 0 |	0	| Y	| 0.52759								
+Mississippi Governor Declares ‘Confederate Heritage Month’ During Coronavirus Pandemic | [@HuffPost](https://www.huffpost.com/entry/tate-reeves-confederate-mississippi_n_5e8b3d5cc5b6cbaf282cf2e3) |	confederacy | 0	| 1 | N | 0.78153					
+U.S. Rapidly Deporting Hundreds Of Migrant Children Under New Coronavirus Rules |	[@HuffPost](https://www.huffpost.com/entry/us-deport-migrant-children-coronavirus-bill_n_5e8d8e46c5b6e1d10a6c30dc) | immigration	| 0	| 0	| Y	| 0.68523								
+Abortion Bans Would Force Women To Travel Hundreds More Miles For Care	| [@HuffPost](https://www.huffpost.com/entry/abortion-bans-travel-coronavirus_n_5e8634b3c5b6a949183355e0) |	abortion 	| 0	| 0	| Y	| 0.80104
+Abortion Stops a Beating Heart — Unless It Is Being Harvested for Research |	[@amspectator](https://spectator.org/abortion-stops-a-beating-heart-unless-it-is-being-harvested-for-research/)	| abortion	| 1	| 1	| Y	| 0.80441								
+The Democrats Go Full Anti Life	 | [@amspectator](https://spectator.org/the-democrats-go-full-anti-life/) |	abortion 	| 1	| 1	| Y	| 0.59681								
+‘No Show Joe’ Makes Trump Look Presidential |	[@amspectator](https://spectator.org/no-show-joe-makes-trump-look-presidential/)	| biden	| 1	| 1	| Y	| 0.83361								
+National Security in the Time of Pandemic	| [@amspectator](https://spectator.org/national-security-in-the-time-of-pandemic/)	| national security |	1 |	1	| Y |	0.51622								
+The Impeachment That Killed Americans |	[@amspectator](https://spectator.org/the-impeachment-that-killed-americans/) | impeachment | 1	| 1	| Y	| 0.54325								
+A Day at the Coronavirus Supermarket That Communist Bernie Would Have Loved	| [@amspectator](https://spectator.org/a-day-at-the-coronavirus-supermarket-that-communist-bernie-would-have-loved/)| bernie 	| 1	| 1	| Y	| 0.83705																
+
 
 
 
