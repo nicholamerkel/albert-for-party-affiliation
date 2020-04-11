@@ -129,10 +129,12 @@ Below are few examples of the tweets used for prediction...
 ### Actual Results
 ###### 0 for Democrat, 1 for Republican
 
-tweet | tweeter (link)  | topic | actual | predicted | correct? | confidence
+tweet | tweeter (link) | topic | actual | predicted | correct? | confidence
 ---- | :----:| :----: | :----: | :----: | :----: | :----:
-Transgender people everywhere deserve to live in dignity and security. Together, we will end hatred and bigotry towards trans Americans and build a nation based on love, justice and civil rights. #TransDayOfVisibility | [@BernieSanders](https://twitter.com/BernieSanders/status/1245079639258812417)|	0	| 0	| Y	| 0.8406 | lgbtq
-
+Transgender people everywhere deserve to live in dignity and security. Together, we will end hatred and bigotry towards trans Americans and build a nation based on love, justice and civil rights. #TransDayOfVisibility | [@BernieSanders](https://twitter.com/BernieSanders/status/1245079639258812417)| lgbtq |0	| 0	| Y	| 0.8406
+Americans deserve better than a health care system where people are terrified and need treatment, but are afraid to go to the doctor or emergency room because they cannot afford the bill. They deserve Medicare for All.	| [@BernieSanders](https://twitter.com/BernieSanders/status/1245029155089133569)	| health care | 0 | 0 | Y | 0.88369								
+We need to bail out workers, not corporations. | [@BernieSanders](https://twitter.com/BernieSanders/status/1241551152258387969) | corporations | 0 | 0 | Y | 0.84622		
+Not surprisingly, the Republican plan for the coronavirus pandemic is totally inadequate. It benefits the rich and large corporations, creates desperation for poor and working families and goes nowhere near far enough to address the health and economic crises we're facing. | [@BernieSanders](https://twitter.com/BernieSanders/status/1241086398960226307)	| corporations | 0 | 	0 |	Y |	0.88926														
 
 ### Discussion of Results
 
