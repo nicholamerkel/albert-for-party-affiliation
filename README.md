@@ -138,9 +138,7 @@ Not surprisingly, the Republican plan for the coronavirus pandemic is totally in
 On day one we'll restore the DACA program for the 1.8 million young people who are eligible. We will we end ICE raids and family separations. We will have a humane, sensible immigration policy supported by the American people. #DemDebate |[@BernieSanders](https://twitter.com/BernieSanders/status/1239360515937271809) | immigration | 0 |	0 |	Y |	0.87774					
 Money that goes to bail out big companies should come with serious long-term change: a $15 minimum wage, at least one seat for workers on their board of directors, & no union-busting. And CEOs should face civil & criminal penalties for violating these terms. |	[@SenWarren](https://twitter.com/SenWarren/status/1245084087704051713) | corp. | 0 |	0 |	Y |	0.88823		
 This time around, by cancelling student debt payments for millions, we will fix the mistake that still holds back a generation of people and dragged down our economy, and create a real, grassroots stimulus to help see us through this crisis. | [@SenWarren](https://twitter.com/SenWarren/status/1240654722484375553) | student debt | 0 | 0 | Y |	0.87841		
-It is disgusting that the Trump Admin is knowingly putting migrants in harm's way, at risk of being kidnapped, by continuing its #RemainInMexico policy.
-Let’s be clear: This policy makes no one safer.
-It is just furthering the Admin’s discriminatory, xenophobic agenda. |	[@SenatorMendez / RT @SenWarren](https://twitter.com/SenatorMenendez/status/1237856580466425856) |	immigration |	0 |	0	| Y |	0.72588																																			
+It is disgusting that the Trump Admin is knowingly putting migrants in harm's way, at risk of being kidnapped, by continuing its #RemainInMexico policy. Let’s be clear: This policy makes no one safer. It is just furthering the Admin’s discriminatory, xenophobic agenda. |	[@SenatorMendez / RT @SenWarren](https://twitter.com/SenatorMenendez/status/1237856580466425856) |	immigration |	0 |	0	| Y |	0.72588																																			
 
 ### Discussion of Results
 
