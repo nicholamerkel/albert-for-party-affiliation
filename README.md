@@ -19,7 +19,7 @@
 - numTweets (optional; default value 500)
   - specifies number of tweets to be scrubbed
 
-to run:
+**to run:**
 ```
 python3
 >>> from twitter_scraper import get_tweets
@@ -29,12 +29,12 @@ python3
 ```
 
 Below are the govt. officials' twitters scraped:
-- President Barack Obama (D) ([@BarackObama](https://twitter.com/BarackObama))
-- VP. Joe Biden (D) ([@JoeBiden](https://twitter.com/JoeBiden))
-- House Speaker Nancy Pelosi (D) ([@SpeakerPelosi](https://twitter.com/SpeakerPelosi))
-- HUD Secretary Ben Carson (R) ([@realBenCarson](https://twitter.com/realBenCarson))
-- President Donald Trump (R) ([@realDonaldTrump](https://twitter.com/realDonaldTrump))
-- WI Governor Scott Walker (R) ([@ScottWalker](https://twitter.com/ScottWalker))
+- President Barack Obama (D) --- [@BarackObama](https://twitter.com/BarackObama)
+- VP. Joe Biden (D) --- [@JoeBiden](https://twitter.com/JoeBiden)
+- House Speaker Nancy Pelosi (D) --- [@SpeakerPelosi](https://twitter.com/SpeakerPelosi)
+- HUD Secretary Ben Carson (R) --- [@realBenCarson](https://twitter.com/realBenCarson)
+- President Donald Trump (R) --- [@realDonaldTrump](https://twitter.com/realDonaldTrump)
+- WI Governor Scott Walker (R) --- [@ScottWalker](https://twitter.com/ScottWalker)
 
 Tweets were scraped on 03/23/20 with the exception of Republicans Ben Carson and Scott Walker, whose tweets were scraped on 03/25/20.
 
@@ -46,10 +46,10 @@ As noted, `twitter-scraper`'s `get_tweets()` implements the functionality for sc
 To do so:
 <ol>
 <li>Manually gather tweets from each file in `twitter_scraper\scrubbed_tweets` and copy into one .xlsx file (after manually grooming)</li>
-<li>Convert the resulting file of above .xlsx file to .tsv
-  <ul><li>I used [this online converter](https://products.groupdocs.app/conversion/xlsx-to-tsv)</li></ol>
+<li>Convert the resulting file of above xlsx file to train.tsv
+  <ul><li>I used [this online converter](https://products.groupdocs.app/conversion/xlsx-to-tsv)</li></ul>
 </li>
-<li>Move .tsv file into `Albert-Sentiment-Analysis\data` and rename to `train.tsv`
+<li>Move train.tsv into `Albert-Sentiment-Analysis\data`
   <ul><li>`data` = name specified in `data_dir` in fine-tuning step</li></ul>
 </li></ol>
 
@@ -65,9 +65,7 @@ In given dataset (i.e. `data\train.tsv`), tweets correspond to:
 
 
 ## Fine Tuning
-
 #### Fine-Tuning ALBERT Pre-Trained Model on Dataset
-
 
 `Albert-Sentiment-Analysis`'s `run_glue.py`:
 - provides functionality of fine-tuning specified pre-trained ALBERT model on given dataset
@@ -84,7 +82,7 @@ In given dataset (i.e. `data\train.tsv`), tweets correspond to:
 - `output_dir`: Directory to store fine-tuned model (must be empty)
 - `do_train`: Because we are training the model
 
-to fine-tune:
+**to fine-tune:**
 
 ```
 python3 run_glue.py --data_dir data --model_type albert --model_name_or_path albert-large-v2 --output_dir ../results/albert/output --task_name sst-2 --do_train
@@ -96,7 +94,7 @@ python3 run_glue.py --data_dir data --model_type albert --model_name_or_path alb
 `Albert-Sentiment-Analysis`'s `apy.py`:
 - performs predictions of given text based on fine-tuned ALBERT model
 
-to perform predictions:
+**to perform predictions:**
 
 1. Set name of folder where model files are stored. I.e. in initialization of SentimentAnalyzer
     class, set `path` equal to the path indicated in `output_dir` of fine-training command. In case
@@ -111,7 +109,7 @@ python3 api.py
 OR via interactive shell. Shown in green with sample tweet from [@realDonaldTrump](https://twitter.com/realDonaldTrump/status/1239201055315025920)
 
 ```
-python
+python3
 >>> from api import SentimentAnalyzer
 >>> classifier = SentimentAnalyzer ()
 >>> print(classifier.predict(’Amazing how the Fake News never covers this. No Interest
