@@ -4,9 +4,6 @@
 
 ## Preparing Dataset
 #### Gathering Tweets via `twitter-scraper`
-
----
-
 - scrapes tweets from specified twitter profiles (trimming links/images from tweets)
 - scraped tweets are put into `results/twitter/scrubbed_tweets` directory (xlsx file)
   - each scraped profile are put into own xlsx file (**not combined .tsv file fine-tuning requires**)
@@ -40,18 +37,20 @@ Below are the government officials' twitters chosen for fine-tuning:
 
 Tweets were scraped on 03/23/20 with the exception of Republicans Ben Carson and Scott Walker, whose tweets were scraped on 03/25/20.
 
-#### Combining Tweets into Comprehensive Dataset for Fine-Tuning
-
 ---
 
+#### Combining Tweets into Comprehensive Dataset for Fine-Tuning
 *First, manually groom each xlsx file, keeping only the tweets that reflect given party affiliation.<br>I chose to keep first 100 party-relevant tweets for each xlsx file/chosen twitter account.*<br><br>
 As noted, `twitter-scraper`'s `get_tweets()` implements the functionality for scraping tweets from one twitter profile. Fine-tuning requires one .tsv file of full corpus.<br>
 To do so:
-1. Manually gather tweets from each file in `twitter_scraper\scrubbed_tweets` and copy into one .xlsx file (after manually grooming)
-2. Convert the resulting file of above .xlsx file to .tsv
-  - I used [this online converter](https://products.groupdocs.app/conversion/xlsx-to-tsv)
-3. Move .tsv file into `Albert-Sentiment-Analysis\data` and rename to `train.tsv`
-  - `data` = name specified in `data_dir` in fine-tuning step
+<ol>
+<li>Manually gather tweets from each file in `twitter_scraper\scrubbed_tweets` and copy into one .xlsx file (after manually grooming)</li>
+<li>Convert the resulting file of above .xlsx file to .tsv
+  <ul><li>I used [this online converter](https://products.groupdocs.app/conversion/xlsx-to-tsv)</li></ol>
+</li>
+<li>Move .tsv file into `Albert-Sentiment-Analysis\data` and rename to `train.tsv`
+  <ul><li>`data` = name specified in `data_dir` in fine-tuning step</li></ul>
+</li></ol>
 
 In given dataset (i.e. `data\train.tsv`), tweets correspond to:
 | rows | govt. official |
@@ -66,8 +65,6 @@ In given dataset (i.e. `data\train.tsv`), tweets correspond to:
 
 ## Fine Tuning
 #### Fine-Tuning ALBERT Pre-Trained Model on Dataset via `Albert-Sentiment-Analysis`
-
----
 
 Provides fine-tuning on pre-trained ALBERT model (`run_glue.py`) + functionality to perform
 predictions (`api.py`)
@@ -93,8 +90,6 @@ Required parameters:
 ## Predictions
 #### Predicting Democrat/Republican Affiliation for Tweets and Headlines via `Albert-Sentiment-Analysis`
 
----
-
 1. Set name of folder where model files are stored. I.e. in initialization of SentimentAnalyzer
     class, set `path` equal to the path indicated in `output_dir` of fine-training command. In case
     above: `path='output'`.
@@ -117,8 +112,6 @@ on Student Loans. The Dems are just talk!’))
 
 ## Results
 ###### \*0 for Democrat, 1 for Republican\*
-
----
 
 tweet | tweeter (link) | topic | actual | predicted | correct? | confidence
 ------- | :----:| :----: | :---: | :---: | :---: | :----:
