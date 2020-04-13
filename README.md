@@ -49,16 +49,18 @@ To do so:
   - `data` = name specified in `data_dir` in fine-tuning step
 
 In given dataset (i.e. `data\train.tsv`), tweets correspond to:
-rows | govt. official
-:---: | -----
-2 - 101 | [@BarackObama](https://twitter.com/BarackObama)
-102 - 201 |[@JoeBiden](https://twitter.com/JoeBiden)
-202 - 301 | [@SpeakerPelosi](https://twitter.com/SpeakerPelosi)
-302 - 401 | [@realDonaldTrump](https://twitter.com/realDonaldTrump)
-402 - 501 | [@ScottWalker](https://twitter.com/ScottWalker)
-502-601 | [@realBenCarson](https://twitter.com/realBenCarson)
- 
+| rows | govt. official |
+| :---: | ----- |
+| 2 - 101 | [@BarackObama](https://twitter.com/BarackObama) |
+| 102 - 201 |[@JoeBiden](https://twitter.com/JoeBiden) |
+| 202 - 301 | [@SpeakerPelosi](https://twitter.com/SpeakerPelosi) |
+| 302 - 401 | [@realDonaldTrump](https://twitter.com/realDonaldTrump) |
+| 402 - 501 | [@ScottWalker](https://twitter.com/ScottWalker) |
+| 502-601 | [@realBenCarson](https://twitter.com/realBenCarson) |
+
+
 ## Fine Tuning
+#####`Albert-Sentiment-Analysis` and Fine-Tuning Albert Pre-Rrained Model on Dataset
 
 `Albert-Sentiment-Analysis` forked from: [gaganmanku96's Albert for Sentiment Analysis](https://github.com/gaganmanku96/Albert-Sentiment-Analysis)
 
@@ -84,7 +86,7 @@ Required parameters:
 - `do_train`: Because we are training the model
 
 ## Predictions
-
+##### `Albert-Sentiment-Analysis` and Predicting Democrat/Republican Affiliation for Tweets and Headlines
 1. Set name of folder where model files are stored. I.e. in initialization of SentimentAnalyzer
     class, set `path` equal to the path indicated in `output_dir` of fine-training command. In case
     above: `path='output'`.
@@ -150,7 +152,7 @@ A Day at the Coronavirus Supermarket That Communist Bernie Would Have Loved	| [@
 
 
 
-### Discussion of Results
+<!-- ### Discussion of Results -->
 
 ## Resources
 
