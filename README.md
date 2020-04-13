@@ -45,8 +45,8 @@ Tweets were scraped on 03/23/20 with the exception of Republicans Ben Carson and
 As noted, `twitter-scraper`'s `get_tweets()` implements the functionality for scraping tweets from one twitter profile. Fine-tuning requires one .tsv file of full corpus.<br>
 To do so:
 <ol>
-<li>Manually gather tweets from each file in <code>twitter_scraper/scrubbed_tweets</code> and copy into one .xlsx file (after manually grooming)</li>
-<li>Convert the resulting file of above xlsx file to <code>train.tsv</code>
+<li>Manually gather tweets from each file in <code>twitter_scraper/scrubbed_tweets</code> and copy into one xlsx file (after manually grooming)</li>
+<li>Convert the resulting xlsx file to <code>train.tsv</code>
   <ul><li>I used <a href="https://products.groupdocs.app/conversion/xlsx-to-tsv">this one</a></li></ul>
 </li>
 <li>Move train.tsv into <code>Albert-Sentiment-Analysis/data</code>
