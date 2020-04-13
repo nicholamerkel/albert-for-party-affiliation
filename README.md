@@ -4,11 +4,11 @@
 
 ## Preparing Dataset
 ##### `twitter-scraper` and Gathering Tweets
-`twitter-scraper` (forked from: [github repo](https://github.com/bisguzar/twitter-scraper)):
+`twitter-scraper` (forked from: [bisguzar's twitter-scraper](https://github.com/bisguzar/twitter-scraper)):
 - scrapes tweets from specified twitter profiles (trimming links/images from tweets)
 - scraped tweets are put into scrubbed_tweets directory (xlsx file) along with specified party affiliation
   - each scraped profile are put into own xlsx file (**not combined .tsv file fine-tuning requires**)
-  - *note: neutral/irrelevant tweets are still admitted. for accuracy of model, it is important to manually comb through resulting xlsx files, keeping only tweets that reflect respective party affiliation.*
+  - *Note: Neutral/irrelevant tweets are still admitted. For accuracy of model, it is important to manually comb through resulting xlsx files, keeping only tweets that reflect respective party affiliation.*
 to run:
 ```
 python3
@@ -26,12 +26,9 @@ python3
   - specifies number of tweets to be scrubbed
 
 Below are the government officials' twitters chosen for fine-tuning:
-Democrats:
 - Barack Obama (D) ([@BarackObama](https://twitter.com/BarackObama))
 - Joe Biden (D) ([@JoeBiden](https://twitter.com/JoeBiden))
 - Nancy Pelosi (D) ([@SpeakerPelosi](https://twitter.com/SpeakerPelosi))
-
-and Republicans:
 - Ben Carson (R) ([@realBenCarson](https://twitter.com/realBenCarson))
 - Donald Trump (R) ([@realDonaldTrump](https://twitter.com/realDonaldTrump))
 - Scott Walker (R) ([@ScottWalker](https://twitter.com/ScottWalker))
@@ -42,16 +39,16 @@ Tweets were scraped on 03/23/20 with the exception of Republicans Ben Carson and
 
 
 #### Combining Tweet into Comprehensive Dataset for Fine-Tuning
-*First, as mentioned earlier, manually groom each xlsx file, keeping only the tweets that reflect given party affiliation. I chose to keep first 100 party-relevant tweets for each xlsx file/chosen twitter account*<br>
-As noted, `twitter-scraper`'s `get_tweets()` implements the functionality for scraping tweets from one twitter profile. As we will see below, fine-tuning requires one .tsv file with full fine-tuning corpus.<br>
+*First, manually groom each xlsx file, keeping only the tweets that reflect given party affiliation.<br>I chose to keep first 100 party-relevant tweets for each xlsx file/chosen twitter account*<br>
+As noted, `twitter-scraper`'s `get_tweets()` implements the functionality for scraping tweets from one twitter profile. Fine-tuning requires one .tsv file of full corpus.<br>
 To do so:
-1. Manually gather tweets from each file in `twitter_scraper\scrubbed_tweets` and copy into one .xlsx file
-2. Use online converter to convert the resulting file of above .xlsx file to .tsv
-  - I used [this one](https://products.groupdocs.app/conversion/xlsx-to-tsv)
+1. Manually gather tweets from each file in `twitter_scraper\scrubbed_tweets` and copy into one .xlsx file (after manually grooming)
+2. Convert the resulting file of above .xlsx file to .tsv
+  - I used [this online converter](https://products.groupdocs.app/conversion/xlsx-to-tsv)
 3. Move .tsv file into `Albert-Sentiment-Analysis\data` and rename to `train.tsv`
   - `data` = name specified in `data_dir` in fine-tuning step
 
-In given dataset (i.e. in  `data\train.tsv`), tweets correspond to:
+In given dataset (i.e. `data\train.tsv`), tweets correspond to:
 rows | govt. official
 :---: | -----
 2 - 101 | [@BarackObama](https://twitter.com/BarackObama)
@@ -61,12 +58,9 @@ rows | govt. official
 402 - 501 | [@ScottWalker](https://twitter.com/ScottWalker)
 502-601 | [@realBenCarson](https://twitter.com/realBenCarson)
  
- 
-
-
 ## Fine Tuning
 
-Cloned from: [gaganmanku96's Albert for Sentiment Analysis](https://github.com/gaganmanku96/Albert-Sentiment-Analysis)
+`Albert-Sentiment-Analysis` forked from: [gaganmanku96's Albert for Sentiment Analysis](https://github.com/gaganmanku96/Albert-Sentiment-Analysis)
 
 Provides fine tuning on pre-trained ALBERT model (`run_glue.py`) + functionality to perform
 predictions (`api.py`)
@@ -101,7 +95,7 @@ Required parameters:
 python3 api.py
 ```
 
-OR via interactive shell. Shown in green with sample tweet from President Trump
+OR via interactive shell. Shown in green with sample tweet from [@realDonaldTrump](https://twitter.com/realDonaldTrump/status/1239201055315025920)
 
 ```
 python
@@ -110,32 +104,14 @@ python
 >>> print(classifier.predict(’Amazing how the Fake News never covers this. No Interest
 on Student Loans. The Dems are just talk!’))
 ```
-<!--
+
 ## Results
-
-Results after fine tuning with cleaned `train.tsv` file of 5000 Democratic and Republic
-tweets each.
-
-Below are few examples of the tweets used for prediction...
-<br/><br/><br/>
-![](https://github.com/nicholamerkel/albert_sentiment_analysis/blob/master/Albert-Sentiment-Analysis/images/trump%203:16%20fake%20news.png "trump fake news")
-<br/><br/><br/>
-![](https://github.com/nicholamerkel/albert_sentiment_analysis/blob/master/Albert-Sentiment-Analysis/images/trumo%203:10%20crazy%20bernie.png "trump crazy bernie")
-<br/><br/><br/>
-![](https://github.com/nicholamerkel/albert_sentiment_analysis/blob/master/Albert-Sentiment-Analysis/images/trump%203:10%20corona.png "trump corona")
-<br/><br/><br/>
-![](https://github.com/nicholamerkel/albert_sentiment_analysis/blob/master/Albert-Sentiment-Analysis/images/pelosi%203:11%20corona.png "pelosi corona")
-<br/><br/><br/>
-![](https://github.com/nicholamerkel/albert_sentiment_analysis/blob/master/Albert-Sentiment-Analysis/images/pelosi%202:27%20gun.png "pelosi gun")
- -->
-
-## Actual Results
 ###### \*0 for Democrat, 1 for Republican\*
 
 tweet | tweeter (link) | topic | actual | predicted | correct? | confidence
 ------- | :----:| :----: | :---: | :---: | :---: | :----:
 Transgender people everywhere deserve to live in dignity and security. Together, we will end hatred and bigotry towards trans Americans and build a nation based on love, justice and civil rights. #TransDayOfVisibility | [@BernieSanders](https://twitter.com/BernieSanders/status/1245079639258812417)| lgbtq |0	| 0	| Y	| 0.8406
-Americans deserve better than a health care system where people are terrified and need treatment, but are afraid to go to the doctor or emergency room because they cannot afford the bill. They deserve Medicare for All.	| [@BernieSanders](https://twitter.com/BernieSanders/status/1245029155089133569)	| health care | 0 | 0 | Y | 0.88369								
+Americans deserve better than a health care system where people are terrified and need treatment, but are afraid to go to the doctor or emergency room because they cannot afford the bill. They deserve Medicare for All.	| [@BernieSanders](https://twitter.com/BernieSanders/status/1245029155089133569) | health care | 0 | 0 | Y | 0.88369								
 We need to bail out workers, not corporations. | [@BernieSanders](https://twitter.com/BernieSanders/status/1241551152258387969) | corp. | 0 | 0 | Y | 0.84622		
 Not surprisingly, the Republican plan for the coronavirus pandemic is totally inadequate. It benefits the rich and large corporations, creates desperation for poor and working families and goes nowhere near far enough to address the health and economic crises we're facing. | [@BernieSanders](https://twitter.com/BernieSanders/status/1241086398960226307)	| corp. | 0 | 	0 |	Y |	0.88926		
 On day one we'll restore the DACA program for the 1.8 million young people who are eligible. We will we end ICE raids and family separations. We will have a humane, sensible immigration policy supported by the American people. #DemDebate |[@BernieSanders](https://twitter.com/BernieSanders/status/1239360515937271809) | immigration | 0 |	0 |	Y |	0.87774					
@@ -170,18 +146,14 @@ The Democrats Go Full Anti Life	 | [@amspectator](https://spectator.org/the-demo
 ‘No Show Joe’ Makes Trump Look Presidential |	[@amspectator](https://spectator.org/no-show-joe-makes-trump-look-presidential/)	| biden	| 1	| 1	| Y	| 0.83361								
 National Security in the Time of Pandemic	| [@amspectator](https://spectator.org/national-security-in-the-time-of-pandemic/)	| national security |	1 |	1	| Y |	0.51622								
 The Impeachment That Killed Americans |	[@amspectator](https://spectator.org/the-impeachment-that-killed-americans/) | impeachment | 1	| 1	| Y	| 0.54325								
-A Day at the Coronavirus Supermarket That Communist Bernie Would Have Loved	| [@amspectator](https://spectator.org/a-day-at-the-coronavirus-supermarket-that-communist-bernie-would-have-loved/)| bernie 	| 1	| 1	| Y	| 0.83705																
-
+A Day at the Coronavirus Supermarket That Communist Bernie Would Have Loved	| [@amspectator](https://spectator.org/a-day-at-the-coronavirus-supermarket-that-communist-bernie-would-have-loved/)| bernie | 1	| 1	| Y	| 0.83705																
 
 
 
 ### Discussion of Results
 
-Fine-tuned model seems to be better suited for accurately predicting Democrat rather than Republican tweets.
-Need to look more into `train.tsv` and include tweet samples from more/better representation of Republican and Democratic leaders.
-
 ## Resources
 
-* [Senitment Analysis using ALBERT](https://towardsdatascience.com/sentiment-analysis-using-albert-938eb)
+* [Sentiment Analysis using ALBERT](https://github.com/gaganmanku96/Albert-Sentiment-Analysis))
 * [Google’s ALBERT](https://github.com/google-research/ALBERT)
 * [Twitter Scraper](https://github.com/bisguzar/twitter-scraper)
