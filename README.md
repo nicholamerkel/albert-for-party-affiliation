@@ -57,11 +57,11 @@ In given dataset (i.e. in  `data\train.tsv`), tweets correspond to:
 rows | govt. official
 --- | -----
 2 - 101 | [@BarackObama](https://twitter.com/BarackObama)
-102 - 201 |([@JoeBiden](https://twitter.com/JoeBiden))
-202 - 301 | ([@SpeakerPelosi](https://twitter.com/SpeakerPelosi))
-302 - 401 | ([@realDonaldTrump](https://twitter.com/realDonaldTrump))
-402 - 501 | ([@ScottWalker](https://twitter.com/ScottWalker))
-502-601 | ([@realBenCarson](https://twitter.com/realBenCarson))
+102 - 201 |[@JoeBiden](https://twitter.com/JoeBiden))
+202 - 301 | [@SpeakerPelosi](https://twitter.com/SpeakerPelosi))
+302 - 401 | [@realDonaldTrump](https://twitter.com/realDonaldTrump))
+402 - 501 | [@ScottWalker](https://twitter.com/ScottWalker))u
+502-601 | [@realBenCarson](https://twitter.com/realBenCarson))
  
  
 
@@ -148,7 +148,7 @@ President Trump & his Big Oil buddies want to allow offshore drilling in more th
 Trump’s new acting intelligence director is an unqualified hack willing to risk our national security to sell out to foreign powers. My bill to #EndCorruptionNow  would ban Americans like Richard Grenell from getting paid to lobby for foreign govts. | [@SenWarren](https://twitter.com/SenWarren/status/1232745435166584837) | corruption / foreign govts. | 0 | 0 | Y | 0.88869
 I mean, that's fine, but I'm not sure what Biden has to offer beyond vague statements and botched basement interviews	| [@BenShapiro](https://twitter.com/benshapiro/status/1245448978373603328) | biden | 1 | 1 | Y | 0.83639			
 Feminists need to stop making the Coronavirus a gender issue like Helen Lewis in her article for @TheAtlantic. Men are dying at higher rates than women, and we are all just trying to survive. | [@classicallyabby / RT @BenShapiro](https://twitter.com/classicallyabby/status/1245442162340368384)	| feminism | 1 | 0 | N | 0.75995
-\#COVIDー19 kills more men than women. But today’s gender activists are so addicted to the “women-are-victims” narrative, nothing can open their hearts &minds to human reality. Gender ideology is a powedul drug. It robs true believers of reason & mercy. Read this thread & weep. https://twitter.com/heatherbarr1/status/1238056470777868294 |	[@CHSommers / RT @BenShapiro](https://twitter.com/CHSommers/status/1245397912378642442)	| feminism	| 1 |	1 |	Y |	0.7881			
+\#COVIDー19 kills more men than women. But today’s gender activists are so addicted to the “women-are-victims” narrative, nothing can open their hearts &minds to human reality. Gender ideology is a powedul drug. It robs true believers of reason & mercy. Read this thread & weep. |	[@CHSommers / RT @BenShapiro](https://twitter.com/CHSommers/status/1245397912378642442)	| feminism	| 1 |	1 |	Y |	0.7881			
 Life is a right. In fact, unlike abortion, which is not a right, life is specified directly in the Declaration of Independence, as well as the Fifth and Fourteenth Amendments, and remains the most fundamental right of all. #AbortionIsAWomansRight	| [@BenShapiro](https://twitter.com/benshapiro/status/1129038284162834432) | abortion |	1 |	1 |	Y |	0.73817													
 "GOP: Okay, we'll pass this insanely large spending bill because we have to stop the imminent collapse of the American economy.<br>Democrats: Sounds good.<br>Pelosi: I WANT WINDMILLS AND CORPORATE DIVERSITY QUOTAS<br>Democrats: WE WANT WINDMILLS AND CORPORATE DIVERSITY QUOTAS" |[ @BenShapiro](https://twitter.com/benshapiro/status/1242152881022623744)	| covid |	1 |	0 |	N |	0.86141			
 Republicans are working to help the American people. Democrats are politicizing this pandemic to advance a radical agenda.	| [@NewtGingrich](https://twitter.com/newtgingrich/status/1242535079810826246) | covid	| 1 | 0 |	N |	0.88494
