@@ -5,18 +5,19 @@
 ## Preparing Dataset
 #### Gathering Tweets
 
-`twitter-scraper`'s `get_tweets()`':
-- takes arguments:
-  - twitter handle (required)
-  - party affiliation (required)
-    - 0 for democrat, 1 for republican
-  - numTweets (optional; default value 500)
-    - specifies number of tweets to be scrubbed
+`twitter-scraper`'s `get_tweets()`:
 - scrapes tweets from specified twitter profiles (trimming links/images from tweets)
 - scraped tweets are put into `results/twitter/scrubbed_tweets` directory (xlsx file)
-  - each scraped profile are put into own xlsx file (**not combined .tsv file fine-tuning requires**)
-  - *NOTE: neutral/irrelevant tweets are still admitted.<br>For accuracy of model, manually groom resulting xlsx files, keeping only tweets that reflect respective party affiliation.*
+  - each scraped profile are put into own xlsx file (**not** combined .tsv file fine-tuning requires)
+  - NOTE: neutral/irrelevant tweets are still admitted.<br>For accuracy of model, **manually groom resulting xlsx files**, keeping only tweets that reflect respective party affiliation.
 
+
+`get_tweets()` takes arguments:
+- twitter handle (required)
+- party affiliation (required)
+  - 0 for democrat, 1 for republican
+- numTweets (optional; default value 500)
+  - specifies number of tweets to be scrubbed
 
 to run:
 ```
@@ -26,13 +27,6 @@ python3
 ...      print(tweet)
 ...
 ```
-<!-- `get_tweets()` takes arguments:
-- twitter handle (required)
-- party affiliation (required)
-  - 0 for democrat, 1 for republican
-- numTweets (optional; default value 500)
-  - specifies number of tweets to be scrubbed -->
-
 
 Below are the government officials' twitters chosen for fine-tuning:
 - Barack Obama (D) ([@BarackObama](https://twitter.com/BarackObama))
