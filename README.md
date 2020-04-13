@@ -5,10 +5,10 @@
 ## Preparing Dataset
 ##### `twitter-scraper` and Gathering Tweets
 - scrapes tweets from specified twitter profiles (trimming links/images from tweets)
-- scraped tweets are put into scrubbed_tweets directory (xlsx file) along with specified party affiliation
+- scraped tweets are put into `results\twitter\scrubbed_tweets` directory (xlsx file)
   - each scraped profile are put into own xlsx file (**not combined .tsv file fine-tuning requires**)
-  - *Note: Neutral/irrelevant tweets are still admitted. For accuracy of model, it is important to manually comb through resulting xlsx files, keeping only tweets that reflect respective party affiliation.*
-to run:
+  - *NOTE: neutral/irrelevant tweets are still admitted. For accuracy of model, important to manually groom resulting xlsx files, keeping only tweets that reflect respective party affiliation.*
+To Run:
 ```
 python3
 >>> from twitter_scraper import get_tweets
@@ -37,8 +37,8 @@ Tweets were scraped on 03/23/20 with the exception of Republicans Ben Carson and
 (Previously used data from: [Kaggle’s Democrat Vs. Republican Tweets](https://www.kaggle.com/kapastor/democratvsrepublicantweets))
 
 
-#### Combining Tweet into Comprehensive Dataset for Fine-Tuning
-*First, manually groom each xlsx file, keeping only the tweets that reflect given party affiliation.<br>I chose to keep first 100 party-relevant tweets for each xlsx file/chosen twitter account*<br>
+#### Combining Tweets into Comprehensive Dataset for Fine-Tuning
+*First, manually groom each xlsx file, keeping only the tweets that reflect given party affiliation.<br>I chose to keep first 100 party-relevant tweets for each xlsx file/chosen twitter account.*<br><br>
 As noted, `twitter-scraper`'s `get_tweets()` implements the functionality for scraping tweets from one twitter profile. Fine-tuning requires one .tsv file of full corpus.<br>
 To do so:
 1. Manually gather tweets from each file in `twitter_scraper\scrubbed_tweets` and copy into one .xlsx file (after manually grooming)
@@ -59,7 +59,7 @@ In given dataset (i.e. `data\train.tsv`), tweets correspond to:
 
 
 ## Fine Tuning
-#####`Albert-Sentiment-Analysis` and Fine-Tuning Albert Pre-Rrained Model on Dataset
+#####`Albert-Sentiment-Analysis` and Fine-Tuning ALBERT Pre-Trained Model on Dataset
 
 Provides fine-tuning on pre-trained ALBERT model (`run_glue.py`) + functionality to perform
 predictions (`api.py`)
