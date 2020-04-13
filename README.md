@@ -8,6 +8,7 @@
 - scraped tweets are put into `results/twitter/scrubbed_tweets` directory (xlsx file)
   - each scraped profile are put into own xlsx file (**not combined .tsv file fine-tuning requires**)
   - *NOTE: neutral/irrelevant tweets are still admitted. For accuracy of model, important to manually groom resulting xlsx files, keeping only tweets that reflect respective party affiliation.*
+<br>
 To Run:
 ```
 python3
