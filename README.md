@@ -29,14 +29,14 @@ python3
 Below are the chosen government officials' twitter
 
 Democrats:
-Barack Obama ([@BarackObama](https://twitter.com/BarackObama))
-Joe Biden ([@JoeBiden](https://twitter.com/JoeBiden))
-Nancy Pelosi ([@SpeakerPelosi](https://twitter.com/SpeakerPelosi))
+Barack Obama ([@BarackObama](https://twitter.com/BarackObama)) <br>
+Joe Biden ([@JoeBiden](https://twitter.com/JoeBiden)) <br>
+Nancy Pelosi ([@SpeakerPelosi](https://twitter.com/SpeakerPelosi)) <br>
 
 and Republicans:
-Ben Carson ([@realBenCarson](https://twitter.com/realBenCarson))
-Donald Trump ([@realDonaldTrump](https://twitter.com/realDonaldTrump))
-Scott Walker ([@ScottWalker](https://twitter.com/ScottWalker))
+Ben Carson ([@realBenCarson](https://twitter.com/realBenCarson))<br>
+Donald Trump ([@realDonaldTrump](https://twitter.com/realDonaldTrump))<br>
+Scott Walker ([@ScottWalker](https://twitter.com/ScottWalker))<br>
 
 Tweets were scraped on 03/23/20 with the exception of Republicans Ben Carson and Scott Walker, whose tweets were scraped on 03/25/20.
 
@@ -44,8 +44,8 @@ Tweets were scraped on 03/23/20 with the exception of Republicans Ben Carson and
 
 
 #### Combining Tweet into Comprehensive Dataset for Fine-Tuning
-As noted, `twitter-scraper`'s `get_tweets()` implements the functionality for scraping tweets from one twitter profile. As we will see below, fine-tuning requires one .tsv file with full fine-tuning corpus.
-**First, as mentioned earlier, manually groom each xlsx file containing tweets from individual twitter accounts, keeping only the tweets that reflect given party affiliation. I chose to keep first 100 (out of the default of 500) party-relevant tweets for each chosen govt. official**
+As noted, `twitter-scraper`'s `get_tweets()` implements the functionality for scraping tweets from one twitter profile. As we will see below, fine-tuning requires one .tsv file with full fine-tuning corpus.<br>
+**First, as mentioned earlier, manually groom each xlsx file containing tweets from individual twitter accounts, keeping only the tweets that reflect given party affiliation. I chose to keep first 100 party-relevant tweets for each chosen twitter account**
 To do so:
 1. Manually gather tweets from each file in `twitter_scraper\scrubbed_tweets` and copy into one .xlsx file
 2. Use online converter to convert the resulting file of above .xlsx file to .tsv
@@ -55,13 +55,13 @@ To do so:
 
 In given dataset (i.e. in  `data\train.tsv`), tweets correspond to:
 rows | govt. official
---- | -----
+:---: | -----
 2 - 101 | [@BarackObama](https://twitter.com/BarackObama)
-102 - 201 |[@JoeBiden](https://twitter.com/JoeBiden))
-202 - 301 | [@SpeakerPelosi](https://twitter.com/SpeakerPelosi))
-302 - 401 | [@realDonaldTrump](https://twitter.com/realDonaldTrump))
-402 - 501 | [@ScottWalker](https://twitter.com/ScottWalker))u
-502-601 | [@realBenCarson](https://twitter.com/realBenCarson))
+102 - 201 |[@JoeBiden](https://twitter.com/JoeBiden)
+202 - 301 | [@SpeakerPelosi](https://twitter.com/SpeakerPelosi)
+302 - 401 | [@realDonaldTrump](https://twitter.com/realDonaldTrump)
+402 - 501 | [@ScottWalker](https://twitter.com/ScottWalker)
+502-601 | [@realBenCarson](https://twitter.com/realBenCarson)
  
  
 
