@@ -1,16 +1,15 @@
 # Tweet Classification via Sentiment Analysis
 
-### Political Party Classification of Tweets via Google’s ALBERT Natural Language Model
-
-##### via [gaganmanku96's Albert for Sentiment Analysis](https://github.com/gaganmanku96/Albert-Sentiment-Analysis)
+### Political Party Classification of Tweets and Headlines via Google’s ALBERT Natural Language Model
 
 ## Preparing Dataset
 ##### `twitter-scraper` and Gathering Tweets
-`twitter-scraper` (cloned from: [github repo](https://github.com/bisguzar/twitter-scraper) + modifications):
-- scrapes tweets from specified twitter profiles
+`twitter-scraper` (forked from: [github repo](https://github.com/bisguzar/twitter-scraper)):
+- scrapes tweets from specified twitter profiles (trimming links/images from tweets)
 - scraped tweets are put into scrubbed_tweets directory (xlsx file) along with specified party affiliation
   - each scraped profile are put into own xlsx file (**not combined .tsv file fine-tuning requires**)
-
+  - *note: neutral/irrelevant tweets are still admitted. for accuracy of model, it is important to manually comb through resulting xlsx files, \
+    keeping only tweets that reflect respective party affiliation.*
 to run:
 ```
 python3
@@ -24,26 +23,19 @@ python3
 - twitter handle (required)
 - party affiliation (required)
   - 0 for democrat, 1 for republican
-- numTweets (optional; default value 300)
+- numTweets (optional; default value 500)
   - specifies number of tweets to be scrubbed
 
 Below are the chosen government officials' twitter
 
 Democrats:
-Andrew Cuomo ([@NYGovCuomo](https://twitter.com/NYGovCuomo))
 Barack Obama ([@BarackObama](https://twitter.com/BarackObama))
-Bernie Sanders ([@SenSanders](https://twitter.com/SenSanders))
-Chuck Schumer ([@SenSchumer](https://twitter.com/SenSchumer))
 Joe Biden ([@JoeBiden](https://twitter.com/JoeBiden))
 Nancy Pelosi ([@SpeakerPelosi](https://twitter.com/SpeakerPelosi))
-
 
 and Republicans:
 Ben Carson ([@realBenCarson](https://twitter.com/realBenCarson))
 Donald Trump ([@realDonaldTrump](https://twitter.com/realDonaldTrump))
-Marco Rubio ([@MarcoRubio](https://twitter.com/MarcoRubio))
-Mike Pence ([@Mike_Pence](https://twitter.com/Mike_Pence))
-Mitt Romney ([@MittRomney](https://twitter.com/MittRomney))
 Scott Walker ([@ScottWalker](https://twitter.com/ScottWalker))
 
 Tweets were scraped on 03/23/20 with the exception of Republicans Ben Carson and Scott Walker, whose tweets were scraped on 03/25/20.
@@ -53,12 +45,25 @@ Tweets were scraped on 03/23/20 with the exception of Republicans Ben Carson and
 
 #### Combining Tweet into Comprehensive Dataset for Fine-Tuning
 As noted, `twitter-scraper`'s `get_tweets()` implements the functionality for scraping tweets from one twitter profile. As we will see below, fine-tuning requires one .tsv file with full fine-tuning corpus.
+**First, as mentioned earlier, manually groom each xlsx file containing tweets from individual twitter accounts, keeping only the tweets that reflect given party affiliation. I chose to keep first 100 (out of the default of 500) party-relevant tweets for each chosen govt. official**
 To do so:
 1. Manually gather tweets from each file in `twitter_scraper\scrubbed_tweets` and copy into one .xlsx file
 2. Use online converter to convert the resulting file of above .xlsx file to .tsv
   - I used [this one](https://products.groupdocs.app/conversion/xlsx-to-tsv)
 3. Move .tsv file into `Albert-Sentiment-Analysis\data` and rename to `train.tsv`
   - `data` = name specified in `data_dir` in fine-tuning step
+
+In given dataset (i.e. in  `data\train.tsv`), tweets correspond to:
+rows | govt. official
+--- | -----
+2 - 101 | [@BarackObama](https://twitter.com/BarackObama)
+102 - 201 |([@JoeBiden](https://twitter.com/JoeBiden))
+202 - 301 | ([@SpeakerPelosi](https://twitter.com/SpeakerPelosi))
+302 - 401 | ([@realDonaldTrump](https://twitter.com/realDonaldTrump))
+402 - 501 | ([@ScottWalker](https://twitter.com/ScottWalker))
+502-601 | ([@realBenCarson](https://twitter.com/realBenCarson))
+ 
+ 
 
 
 ## Fine Tuning
@@ -156,7 +161,7 @@ Want to kill a robust economy? Then, raise taxes on companies and the middle cla
 and headlines...
 headline | news org. (link) | topic | actual | predicted | correct? | confidence
 ------- | :----:| :----: | :---: | :---: | :---: | :----:
-FDA Relaxes ‘Blood Ban’ For Gay Men, But LGBTQ Advocates Want Bigger Change |	[@HuffPost](https://twitter.com/HuffPost/status/1245847151458095104) | lgbtq | 0 | 0 | Y |	0.72859			
+FDA Relaxes ‘Blood Ban’ For Gay Men, But LGBTQ Advocates Want Bigger Change |	[@HuffPost](https://www.huffpost.com/entry/blood-donations-relaxed-some-gay-bisexual-men_n_5e862395c5b6a94918331371?ncid=tweetlnkushpmg00000067) | lgbtq | 0 | 0 | Y |	0.72859			
 Trump Announces CDC Mask Guidelines But Says He Probably Won’t Follow Them | [@HuffPost](https://www.huffpost.com/entry/trump-mask-cdc-guidelines-voluntary_n_5e87b11cc5b6cc1e47753b7e) | trump	| 0 |	1 | N |	0.83786					
 Legal Sex Workers And Others In Adult Industry Denied Coronavirus Aid	| [@HuffPost](https://www.huffpost.com/entry/legal-sex-workers-denied-coronavirus-aid_n_5e86287ac5b6d302366ca912) |	sex workers / covid / health care | 0 |	0	| Y	| 0.52759								
 Mississippi Governor Declares ‘Confederate Heritage Month’ During Coronavirus Pandemic | [@HuffPost](https://www.huffpost.com/entry/tate-reeves-confederate-mississippi_n_5e8b3d5cc5b6cbaf282cf2e3) |	confederacy | 0	| 1 | N | 0.78153					
