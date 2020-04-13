@@ -1,6 +1,6 @@
 # Tweet Classification via Sentiment Analysis
 
-### Political Party Classification of Tweets and Headlines via Google’s ALBERT Natural Language Model
+##### Political Party Classification of Tweets and Headlines via Google’s ALBERT Natural Language Model
 
 ## Preparing Dataset
 #### Gathering Tweets via `twitter-scraper`
@@ -10,7 +10,7 @@
 - scrapes tweets from specified twitter profiles (trimming links/images from tweets)
 - scraped tweets are put into `results/twitter/scrubbed_tweets` directory (xlsx file)
   - each scraped profile are put into own xlsx file (**not combined .tsv file fine-tuning requires**)
-  - *NOTE: neutral/irrelevant tweets are still admitted. For accuracy of model, important to manually groom resulting xlsx files, keeping only tweets that reflect respective party affiliation.*
+  - *NOTE: neutral/irrelevant tweets are still admitted.<br>For accuracy of model, manually groom resulting xlsx files, keeping only tweets that reflect respective party affiliation.*
 
 
 To Run:
