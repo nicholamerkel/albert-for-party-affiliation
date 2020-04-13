@@ -25,17 +25,16 @@ python3
 - numTweets (optional; default value 500)
   - specifies number of tweets to be scrubbed
 
-Below are the chosen government officials' twitter
-
+Below are the government officials' twitters chosen for fine-tuning:
 Democrats:
-- Barack Obama ([@BarackObama](https://twitter.com/BarackObama))
-- Joe Biden ([@JoeBiden](https://twitter.com/JoeBiden))
-- Nancy Pelosi ([@SpeakerPelosi](https://twitter.com/SpeakerPelosi))
+- Barack Obama (D) ([@BarackObama](https://twitter.com/BarackObama))
+- Joe Biden (D) ([@JoeBiden](https://twitter.com/JoeBiden))
+- Nancy Pelosi (D) ([@SpeakerPelosi](https://twitter.com/SpeakerPelosi))
 
 and Republicans:
-- Ben Carson ([@realBenCarson](https://twitter.com/realBenCarson))
-- Donald Trump ([@realDonaldTrump](https://twitter.com/realDonaldTrump))
-- Scott Walker ([@ScottWalker](https://twitter.com/ScottWalker))
+- Ben Carson (R) ([@realBenCarson](https://twitter.com/realBenCarson))
+- Donald Trump (R) ([@realDonaldTrump](https://twitter.com/realDonaldTrump))
+- Scott Walker (R) ([@ScottWalker](https://twitter.com/ScottWalker))
 
 Tweets were scraped on 03/23/20 with the exception of Republicans Ben Carson and Scott Walker, whose tweets were scraped on 03/25/20.
 
