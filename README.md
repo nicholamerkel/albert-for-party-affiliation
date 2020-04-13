@@ -3,14 +3,22 @@
 ##### Political Party Classification of Tweets and Headlines via Google’s ALBERT Natural Language Model
 
 ## Preparing Dataset
-#### Gathering Tweets via `twitter-scraper`
+#### Gathering Tweets
+
+`twitter-scraper`'s `get_tweets()`':
+- takes arguments:
+  - twitter handle (required)
+  - party affiliation (required)
+    - 0 for democrat, 1 for republican
+  - numTweets (optional; default value 500)
+    - specifies number of tweets to be scrubbed
 - scrapes tweets from specified twitter profiles (trimming links/images from tweets)
 - scraped tweets are put into `results/twitter/scrubbed_tweets` directory (xlsx file)
   - each scraped profile are put into own xlsx file (**not combined .tsv file fine-tuning requires**)
   - *NOTE: neutral/irrelevant tweets are still admitted.<br>For accuracy of model, manually groom resulting xlsx files, keeping only tweets that reflect respective party affiliation.*
 
 
-To Run:
+to run:
 ```
 python3
 >>> from twitter_scraper import get_tweets
@@ -18,13 +26,12 @@ python3
 ...      print(tweet)
 ...
 ```
-
-`get_tweets()` takes arguments:
+<!-- `get_tweets()` takes arguments:
 - twitter handle (required)
 - party affiliation (required)
   - 0 for democrat, 1 for republican
 - numTweets (optional; default value 500)
-  - specifies number of tweets to be scrubbed
+  - specifies number of tweets to be scrubbed -->
 
 
 Below are the government officials' twitters chosen for fine-tuning:
@@ -69,10 +76,10 @@ In given dataset (i.e. `data\train.tsv`), tweets correspond to:
 Provides fine-tuning on pre-trained ALBERT model (`run_glue.py`) + functionality to perform
 predictions (`api.py`)
 
-To Fine-Tune:
+to fine-tune:
 
 ```
-python3 run_glue.py --data_dir data --model_type albert --model_name_or_path albert-large-v2 --output_dir output --task_name sst-2 --do_train
+python3 run_glue.py --data_dir data --model_type albert --model_name_or_path albert-large-v2 --output_dir ../results/albert/output --task_name sst-2 --do_train
 ```
 Required parameters:
 
@@ -92,7 +99,7 @@ Required parameters:
 
 1. Set name of folder where model files are stored. I.e. in initialization of SentimentAnalyzer
     class, set `path` equal to the path indicated in `output_dir` of fine-training command. In case
-    above: `path='output'`.
+    above: `path='../results/albert/output'`.
 2. Run `api.py` file:
     Set text on line 89 of `api.py` to the tweet to predict on and run `api.py` directly.
 
