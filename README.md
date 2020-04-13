@@ -6,9 +6,9 @@
 #### Gathering Tweets
 
 `twitter-scraper`'s `get_tweets()`:
-- scrapes tweets from specified twitter profiles (trimming links/images from tweets)
-- scraped tweets are put into `results/twitter/scrubbed_tweets` directory (xlsx file)
-  - each scraped profile are put into own xlsx file (**not** combined .tsv file fine-tuning requires)
+- scrapes tweets from specified twitter profile (trimming links/images from tweets)
+- xlsx file of scraped tweets are put into `results/twitter/scrubbed_tweets` directory
+  - NOTE: each scraped profile are put into own xlsx file (**not** combined .tsv file fine-tuning requires)
   - NOTE: neutral/irrelevant tweets are still admitted.<br>For accuracy of model, **manually groom resulting xlsx files**, keeping only tweets that reflect respective party affiliation.
 
 
@@ -34,7 +34,7 @@ Below are the govt. officials' twitters scraped:
 - House Speaker Nancy Pelosi (D) ([@SpeakerPelosi](https://twitter.com/SpeakerPelosi))
 - HUD Secretary Ben Carson (R) ([@realBenCarson](https://twitter.com/realBenCarson))
 - President Donald Trump (R) ([@realDonaldTrump](https://twitter.com/realDonaldTrump))
-- WI Gov. Scott Walker (R) ([@ScottWalker](https://twitter.com/ScottWalker))
+- WI Governor Scott Walker (R) ([@ScottWalker](https://twitter.com/ScottWalker))
 
 Tweets were scraped on 03/23/20 with the exception of Republicans Ben Carson and Scott Walker, whose tweets were scraped on 03/25/20.
 
@@ -65,18 +65,14 @@ In given dataset (i.e. `data\train.tsv`), tweets correspond to:
 
 
 ## Fine Tuning
-#### Fine-Tuning ALBERT Pre-Trained Model on Dataset via `Albert-Sentiment-Analysis`
 
-Provides fine-tuning on pre-trained ALBERT model (`run_glue.py`) + functionality to perform
-predictions (`api.py`)
+#### Fine-Tuning ALBERT Pre-Trained Model on Dataset
 
-to fine-tune:
 
-```
-python3 run_glue.py --data_dir data --model_type albert --model_name_or_path albert-large-v2 --output_dir ../results/albert/output --task_name sst-2 --do_train
-```
-Required parameters:
+`Albert-Sentiment-Analysis`'s `run_glue.py`:
+- provides functionality of fine-tuning specified pre-trained ALBERT model on given dataset
 
+`run_glue.py` required parameters:
 - `data_dir`: Directory where data is stored
   - `train.tsv` resides in data directory.
   - `train.tsv` has two columns: ”Tweets” and ”Party” with 0’s and 1’s representing
@@ -88,8 +84,19 @@ Required parameters:
 - `output_dir`: Directory to store fine-tuned model (must be empty)
 - `do_train`: Because we are training the model
 
+to fine-tune:
+
+```
+python3 run_glue.py --data_dir data --model_type albert --model_name_or_path albert-large-v2 --output_dir ../results/albert/output --task_name sst-2 --do_train
+```
+
+
 ## Predictions
-#### Predicting Democrat/Republican Affiliation for Tweets and Headlines via `Albert-Sentiment-Analysis`
+#### Predicting Democrat/Republican Affiliation for Tweets and Headlines
+`Albert-Sentiment-Analysis`'s `apy.py`:
+- performs predictions of given text based on fine-tuned ALBERT model
+
+to perform predictions:
 
 1. Set name of folder where model files are stored. I.e. in initialization of SentimentAnalyzer
     class, set `path` equal to the path indicated in `output_dir` of fine-training command. In case
