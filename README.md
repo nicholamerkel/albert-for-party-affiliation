@@ -5,7 +5,7 @@
 ## Preparing Dataset
 ##### `twitter-scraper` and Gathering Tweets
 - scrapes tweets from specified twitter profiles (trimming links/images from tweets)
-- scraped tweets are put into `results\twitter\scrubbed_tweets` directory (xlsx file)
+- scraped tweets are put into `results/twitter/scrubbed_tweets` directory (xlsx file)
   - each scraped profile are put into own xlsx file (**not combined .tsv file fine-tuning requires**)
   - *NOTE: neutral/irrelevant tweets are still admitted. For accuracy of model, important to manually groom resulting xlsx files, keeping only tweets that reflect respective party affiliation.*
 To Run:
@@ -59,7 +59,7 @@ In given dataset (i.e. `data\train.tsv`), tweets correspond to:
 
 
 ## Fine Tuning
-#####`Albert-Sentiment-Analysis` and Fine-Tuning ALBERT Pre-Trained Model on Dataset
+##### `Albert-Sentiment-Analysis` and Fine-Tuning ALBERT Pre-Trained Model on Dataset
 
 Provides fine-tuning on pre-trained ALBERT model (`run_glue.py`) + functionality to perform
 predictions (`api.py`)
@@ -83,7 +83,7 @@ Required parameters:
 - `do_train`: Because we are training the model
 
 ## Predictions
-#####`Albert-Sentiment-Analysis` and Predicting Democrat/Republican Affiliation for Tweets and Headlines
+##### `Albert-Sentiment-Analysis` and Predicting Democrat/Republican Affiliation for Tweets and Headlines
 1. Set name of folder where model files are stored. I.e. in initialization of SentimentAnalyzer
     class, set `path` equal to the path indicated in `output_dir` of fine-training command. In case
     above: `path='output'`.
