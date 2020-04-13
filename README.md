@@ -29,12 +29,12 @@ python3
 ```
 
 Below are the govt. officials' twitters scraped:
-- President Barack Obama (D) --- [@BarackObama](https://twitter.com/BarackObama)
-- VP. Joe Biden (D) --- [@JoeBiden](https://twitter.com/JoeBiden)
-- House Speaker Nancy Pelosi (D) --- [@SpeakerPelosi](https://twitter.com/SpeakerPelosi)
-- HUD Secretary Ben Carson (R) --- [@realBenCarson](https://twitter.com/realBenCarson)
-- President Donald Trump (R) --- [@realDonaldTrump](https://twitter.com/realDonaldTrump)
-- WI Governor Scott Walker (R) --- [@ScottWalker](https://twitter.com/ScottWalker)
+- President Barack Obama (D): [@BarackObama](https://twitter.com/BarackObama)
+- VP. Joe Biden (D): [@JoeBiden](https://twitter.com/JoeBiden)
+- House Speaker Nancy Pelosi (D): [@SpeakerPelosi](https://twitter.com/SpeakerPelosi)
+- HUD Secretary Ben Carson (R): [@realBenCarson](https://twitter.com/realBenCarson)
+- President Donald Trump (R): [@realDonaldTrump](https://twitter.com/realDonaldTrump)
+- WI Governor Scott Walker (R): [@ScottWalker](https://twitter.com/ScottWalker)
 
 Tweets were scraped on 03/23/20 with the exception of Republicans Ben Carson and Scott Walker, whose tweets were scraped on 03/25/20.
 
