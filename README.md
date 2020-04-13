@@ -8,8 +8,7 @@
 - scrapes tweets from specified twitter profiles (trimming links/images from tweets)
 - scraped tweets are put into scrubbed_tweets directory (xlsx file) along with specified party affiliation
   - each scraped profile are put into own xlsx file (**not combined .tsv file fine-tuning requires**)
-  - *note: neutral/irrelevant tweets are still admitted. for accuracy of model, it is important to manually comb through resulting xlsx files, \
-    keeping only tweets that reflect respective party affiliation.*
+  - *note: neutral/irrelevant tweets are still admitted. for accuracy of model, it is important to manually comb through resulting xlsx files, keeping only tweets that reflect respective party affiliation.*
 to run:
 ```
 python3
@@ -29,14 +28,14 @@ python3
 Below are the chosen government officials' twitter
 
 Democrats:
-Barack Obama ([@BarackObama](https://twitter.com/BarackObama)) <br>
-Joe Biden ([@JoeBiden](https://twitter.com/JoeBiden)) <br>
-Nancy Pelosi ([@SpeakerPelosi](https://twitter.com/SpeakerPelosi)) <br>
+- Barack Obama ([@BarackObama](https://twitter.com/BarackObama))
+- Joe Biden ([@JoeBiden](https://twitter.com/JoeBiden))
+- Nancy Pelosi ([@SpeakerPelosi](https://twitter.com/SpeakerPelosi))
 
 and Republicans:
-Ben Carson ([@realBenCarson](https://twitter.com/realBenCarson))<br>
-Donald Trump ([@realDonaldTrump](https://twitter.com/realDonaldTrump))<br>
-Scott Walker ([@ScottWalker](https://twitter.com/ScottWalker))<br>
+- Ben Carson ([@realBenCarson](https://twitter.com/realBenCarson))
+- Donald Trump ([@realDonaldTrump](https://twitter.com/realDonaldTrump))
+- Scott Walker ([@ScottWalker](https://twitter.com/ScottWalker))
 
 Tweets were scraped on 03/23/20 with the exception of Republicans Ben Carson and Scott Walker, whose tweets were scraped on 03/25/20.
 
@@ -44,8 +43,8 @@ Tweets were scraped on 03/23/20 with the exception of Republicans Ben Carson and
 
 
 #### Combining Tweet into Comprehensive Dataset for Fine-Tuning
+*First, as mentioned earlier, manually groom each xlsx file, keeping only the tweets that reflect given party affiliation. I chose to keep first 100 party-relevant tweets for each xlsx file/chosen twitter account*<br>
 As noted, `twitter-scraper`'s `get_tweets()` implements the functionality for scraping tweets from one twitter profile. As we will see below, fine-tuning requires one .tsv file with full fine-tuning corpus.<br>
-**First, as mentioned earlier, manually groom each xlsx file containing tweets from individual twitter accounts, keeping only the tweets that reflect given party affiliation. I chose to keep first 100 party-relevant tweets for each chosen twitter account**
 To do so:
 1. Manually gather tweets from each file in `twitter_scraper\scrubbed_tweets` and copy into one .xlsx file
 2. Use online converter to convert the resulting file of above .xlsx file to .tsv
