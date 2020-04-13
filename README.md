@@ -3,6 +3,7 @@
 ### Political Party Classification of Tweets and Headlines via Google’s ALBERT Natural Language Model
 
 ## Preparing Dataset
+---
 ##### `twitter-scraper` and Gathering Tweets
 ---
 - scrapes tweets from specified twitter profiles (trimming links/images from tweets)
@@ -39,9 +40,7 @@ Below are the government officials' twitters chosen for fine-tuning:
 
 Tweets were scraped on 03/23/20 with the exception of Republicans Ben Carson and Scott Walker, whose tweets were scraped on 03/25/20.
 
-(Previously used data from: [Kaggle’s Democrat Vs. Republican Tweets](https://www.kaggle.com/kapastor/democratvsrepublicantweets))
-
-
+---
 #### Combining Tweets into Comprehensive Dataset for Fine-Tuning
 ---
 *First, manually groom each xlsx file, keeping only the tweets that reflect given party affiliation.<br>I chose to keep first 100 party-relevant tweets for each xlsx file/chosen twitter account.*<br><br>
@@ -63,7 +62,7 @@ In given dataset (i.e. `data\train.tsv`), tweets correspond to:
 | 402 - 501 | [@ScottWalker](https://twitter.com/ScottWalker) |
 | 502-601 | [@realBenCarson](https://twitter.com/realBenCarson) |
 
-
+---
 ## Fine Tuning
 ##### `Albert-Sentiment-Analysis` and Fine-Tuning ALBERT Pre-Trained Model on Dataset
 ---
