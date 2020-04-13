@@ -45,15 +45,15 @@ Tweets were scraped on 03/23/20 with the exception of Republicans Ben Carson and
 As noted, `twitter-scraper`'s `get_tweets()` implements the functionality for scraping tweets from one twitter profile. Fine-tuning requires one .tsv file of full corpus.<br>
 To do so:
 <ol>
-<li>Manually gather tweets from each file in <code>twitter_scraper\scrubbed_tweets</code> and copy into one .xlsx file (after manually grooming)</li>
-<li>Convert the resulting file of above xlsx file to train.tsv
+<li>Manually gather tweets from each file in <code>twitter_scraper/scrubbed_tweets</code> and copy into one .xlsx file (after manually grooming)</li>
+<li>Convert the resulting file of above xlsx file to <code>train.tsv</code>
   <ul><li>I used <a href="https://products.groupdocs.app/conversion/xlsx-to-tsv">this one</a></li></ul>
 </li>
-<li>Move train.tsv into <code>Albert-Sentiment-Analysis\data</code>
+<li>Move train.tsv into <code>Albert-Sentiment-Analysis/data</code>
   <ul><li><code>data</code> = name specified in <code>data_dir</code> in fine-tuning step</li></ul>
 </li></ol>
 
-In given dataset (i.e. `data\train.tsv`), tweets correspond to:
+In given dataset (i.e. `data/train.tsv`), tweets correspond to:
 | rows | govt. official |
 | :---: | ----- |
 | 2 - 101 | [@BarackObama](https://twitter.com/BarackObama) |
@@ -91,7 +91,7 @@ python3 run_glue.py --data_dir data --model_type albert --model_name_or_path alb
 
 ## Predictions
 #### Predicting Democrat/Republican Affiliation for Tweets and Headlines
-`Albert-Sentiment-Analysis`'s `apy.py`:
+`Albert-Sentiment-Analysis`'s `api.py`:
 - performs predictions of given text based on fine-tuned ALBERT model
 
 **to perform predictions:**
