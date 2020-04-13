@@ -3,9 +3,10 @@
 ### Political Party Classification of Tweets and Headlines via Google’s ALBERT Natural Language Model
 
 ## Preparing Dataset
----
 ##### `twitter-scraper` and Gathering Tweets
+
 ---
+
 - scrapes tweets from specified twitter profiles (trimming links/images from tweets)
 - scraped tweets are put into `results/twitter/scrubbed_tweets` directory (xlsx file)
   - each scraped profile are put into own xlsx file (**not combined .tsv file fine-tuning requires**)
@@ -28,7 +29,6 @@ python3
 - numTweets (optional; default value 500)
   - specifies number of tweets to be scrubbed
 
----
 
 Below are the government officials' twitters chosen for fine-tuning:
 - Barack Obama (D) ([@BarackObama](https://twitter.com/BarackObama))
@@ -41,7 +41,9 @@ Below are the government officials' twitters chosen for fine-tuning:
 Tweets were scraped on 03/23/20 with the exception of Republicans Ben Carson and Scott Walker, whose tweets were scraped on 03/25/20.
 
 ---
+
 #### Combining Tweets into Comprehensive Dataset for Fine-Tuning
+
 ---
 *First, manually groom each xlsx file, keeping only the tweets that reflect given party affiliation.<br>I chose to keep first 100 party-relevant tweets for each xlsx file/chosen twitter account.*<br><br>
 As noted, `twitter-scraper`'s `get_tweets()` implements the functionality for scraping tweets from one twitter profile. Fine-tuning requires one .tsv file of full corpus.<br>
@@ -63,9 +65,12 @@ In given dataset (i.e. `data\train.tsv`), tweets correspond to:
 | 502-601 | [@realBenCarson](https://twitter.com/realBenCarson) |
 
 ---
+
 ## Fine Tuning
 ##### `Albert-Sentiment-Analysis` and Fine-Tuning ALBERT Pre-Trained Model on Dataset
+
 ---
+
 Provides fine-tuning on pre-trained ALBERT model (`run_glue.py`) + functionality to perform
 predictions (`api.py`)
 
@@ -89,7 +94,9 @@ Required parameters:
 
 ## Predictions
 ##### `Albert-Sentiment-Analysis` and Predicting Democrat/Republican Affiliation for Tweets and Headlines
+
 ---
+
 1. Set name of folder where model files are stored. I.e. in initialization of SentimentAnalyzer
     class, set `path` equal to the path indicated in `output_dir` of fine-training command. In case
     above: `path='output'`.
@@ -112,6 +119,7 @@ on Student Loans. The Dems are just talk!’))
 
 ## Results
 ###### \*0 for Democrat, 1 for Republican\*
+
 ---
 
 tweet | tweeter (link) | topic | actual | predicted | correct? | confidence
@@ -159,7 +167,6 @@ A Day at the Coronavirus Supermarket That Communist Bernie Would Have Loved	| [@
 <!-- ### Discussion of Results -->
 
 ## Resources
----
 - [Sentiment Analysis using ALBERT](https://github.com/gaganmanku96/Albert-Sentiment-Analysis))
 - [Google’s ALBERT](https://github.com/google-research/ALBERT)
 - [Twitter Scraper](https://github.com/bisguzar/twitter-scraper)
