@@ -57,13 +57,13 @@ To do so:
 - `model_name_or_path`: Variant of Albert you want to use
   - Models range from base to xxlarge (along with different versions)
   - More information of models is available here or on the official [Google ALBERT repository](https://github.com/google-research/ALBERT)
-- `output_dir`: Directory to store fine-tuned model (must be empty)
+- `output_dir`: Directory to store fine-tuned model (directory must be empty)
 - `do_train`: Because we are training the model
 
 **to fine-tune:**
 
 ```
-python3 run_glue.py --data_dir data --model_type albert --model_name_or_path albert-large-v2 --output_dir ../results/albert/output --task_name sst-2 --do_train
+python3 run_glue.py --data_dir data --model_type albert --model_name_or_path albert-large-v2 --output_dir output --task_name sst-2 --do_train
 ```
 
 
