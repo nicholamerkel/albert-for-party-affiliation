@@ -116,8 +116,9 @@ In dataset (i.e. `data/train.tsv`), rows/tweets were made by corresponding twitt
 | 402 - 501 | [@ScottWalker](https://twitter.com/ScottWalker) |
 | 502-601 | [@realBenCarson](https://twitter.com/realBenCarson) |
 
+---
 
-
+#### Predictions via Fine-Tuned Model
 ###### \*0 for Democrat, 1 for Republican\*
 
 tweet | tweeter (link) | topic | actual | predicted | correct? | confidence
