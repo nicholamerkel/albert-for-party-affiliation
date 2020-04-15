@@ -1,15 +1,15 @@
-# Tweet Classification via Sentiment Analysis
+# Tweet and Headline Classification via Sentiment Analysis
 
-##### Political Party Classification of Tweets and Headlines via Google’s ALBERT Natural Language Model
+##### Political Party Classification of Tweets and Headlines via Google’s ALBERT
 
 ## Preparing Dataset
 #### Gathering Tweets
 
 `twitter-scraper`'s `get_tweets()`:
 - scrapes tweets from specified twitter profile (trimming links/images from tweets)
-- xlsx file of scraped tweets are put into `results/twitter/scrubbed_tweets` directory
-  - NOTE: each scraped profile are put into own xlsx file (**not** combined .tsv file fine-tuning requires)
-  - NOTE: neutral/irrelevant tweets are still admitted.<br>For accuracy of model, **manually groom resulting xlsx files**, keeping only tweets that reflect respective party affiliation.
+- xlsx file of scraped tweets is put into `results/twitter/scrubbed_tweets` directory
+  - NOTE: each scraped profile has own xlsx file (**not** combined tsv file fine-tuning requires)
+  - NOTE: neutral/irrelevant tweets are still admitted. For accuracy of model, **manually groom resulting xlsx files**, keeping only tweets that reflect respective party affiliation.
 
 
 `get_tweets()` takes arguments:
@@ -27,17 +27,6 @@ python3
 ...      print(tweet)
 ...
 ```
-
-Below are the govt. officials' twitters scraped:
-- President Barack Obama (D): [@BarackObama](https://twitter.com/BarackObama)
-- VP. Joe Biden (D): [@JoeBiden](https://twitter.com/JoeBiden)
-- House Speaker Nancy Pelosi (D): [@SpeakerPelosi](https://twitter.com/SpeakerPelosi)
-- HUD Secretary Ben Carson (R): [@realBenCarson](https://twitter.com/realBenCarson)
-- President Donald Trump (R): [@realDonaldTrump](https://twitter.com/realDonaldTrump)
-- WI Governor Scott Walker (R): [@ScottWalker](https://twitter.com/ScottWalker)
-
-Tweets were scraped on 03/23/20 with the exception of Republicans Ben Carson and Scott Walker, whose tweets were scraped on 03/25/20.
-
 ---
 
 #### Combining Tweets into Comprehensive Dataset for Fine-Tuning
@@ -52,17 +41,6 @@ To do so:
 <li>Move train.tsv into <code>Albert-Sentiment-Analysis/data</code>
   <ul><li><code>data</code> = name specified in <code>data_dir</code> in fine-tuning step</li></ul>
 </li></ol>
-
-In given dataset (i.e. `data/train.tsv`), tweets correspond to:
-| rows | govt. official |
-| :---: | ----- |
-| 2 - 101 | [@BarackObama](https://twitter.com/BarackObama) |
-| 102 - 201 |[@JoeBiden](https://twitter.com/JoeBiden) |
-| 202 - 301 | [@SpeakerPelosi](https://twitter.com/SpeakerPelosi) |
-| 302 - 401 | [@realDonaldTrump](https://twitter.com/realDonaldTrump) |
-| 402 - 501 | [@ScottWalker](https://twitter.com/ScottWalker) |
-| 502-601 | [@realBenCarson](https://twitter.com/realBenCarson) |
-
 
 ## Fine Tuning
 #### Fine-Tuning ALBERT Pre-Trained Model on Dataset
@@ -117,6 +95,29 @@ on Student Loans. The Dems are just talk!’))
 ```
 
 ## Results
+#### Chosen Dataset for Fine-Tuning
+Below are the twitter accounts scraped and used for fine-tuning:
+- President Barack Obama (D): [@BarackObama](https://twitter.com/BarackObama)
+- VP. Joe Biden (D): [@JoeBiden](https://twitter.com/JoeBiden)
+- House Speaker Nancy Pelosi (D): [@SpeakerPelosi](https://twitter.com/SpeakerPelosi)
+- HUD Secretary Ben Carson (R): [@realBenCarson](https://twitter.com/realBenCarson)
+- President Donald Trump (R): [@realDonaldTrump](https://twitter.com/realDonaldTrump)
+- WI Governor Scott Walker (R): [@ScottWalker](https://twitter.com/ScottWalker)
+
+Tweets were scraped on 03/23/20 with the exception of Republicans Ben Carson and Scott Walker, whose tweets were scraped on 03/25/20.
+
+In dataset (i.e. `data/train.tsv`), rows/tweets were made by corresponding twitter user:
+| rows/tweets | author of tweets |
+| :---: | ----- |
+| 2 - 101 | [@BarackObama](https://twitter.com/BarackObama) |
+| 102 - 201 |[@JoeBiden](https://twitter.com/JoeBiden) |
+| 202 - 301 | [@SpeakerPelosi](https://twitter.com/SpeakerPelosi) |
+| 302 - 401 | [@realDonaldTrump](https://twitter.com/realDonaldTrump) |
+| 402 - 501 | [@ScottWalker](https://twitter.com/ScottWalker) |
+| 502-601 | [@realBenCarson](https://twitter.com/realBenCarson) |
+
+
+
 ###### \*0 for Democrat, 1 for Republican\*
 
 tweet | tweeter (link) | topic | actual | predicted | correct? | confidence
