@@ -162,10 +162,11 @@ The Impeachment That Killed Americans |	[@amspectator](https://spectator.org/the
 A Day at the Coronavirus Supermarket That Communist Bernie Would Have Loved	| [@amspectator](https://spectator.org/a-day-at-the-coronavirus-supermarket-that-communist-bernie-would-have-loved/)| bernie | 1	| 1	| Y	| 0.83705																
 
 
+#### Discussion of Results
+Overall, found accuracy of about 78% (with 25 out of 32 tweets/headlines correctly predicted).
 
-<!-- ### Discussion of Results -->
 
 ## Resources
-- [Sentiment Analysis using ALBERT](https://github.com/gaganmanku96/Albert-Sentiment-Analysis))
+- [Sentiment Analysis using ALBERT](https://github.com/gaganmanku96/Albert-Sentiment-Analysis)
 - [Google’s ALBERT](https://github.com/google-research/ALBERT)
 - [Twitter Scraper](https://github.com/bisguzar/twitter-scraper)
