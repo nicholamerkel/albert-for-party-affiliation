@@ -38,8 +38,8 @@ To do so:
 <li>Convert the resulting xlsx file to <code>train.tsv</code>
   <ul><li>I used <a href="https://products.groupdocs.app/conversion/xlsx-to-tsv">this one</a></li></ul>
 </li>
-<li>Move train.tsv into <code>Albert-Sentiment-Analysis/data</code>
-  <ul><li><code>data</code> = name specified in <code>data_dir</code> in fine-tuning step</li></ul>
+<li>Move train.tsv to: <code>Albert-Sentiment-Analysis/data/train.tsv</code>
+  <ul><li><code>data</code> directory = directory specified in <code>data_dir</code> in fine-tuning step</li></ul>
 </li></ol>
 
 ## Fine Tuning
