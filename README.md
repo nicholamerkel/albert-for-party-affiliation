@@ -31,10 +31,10 @@ python3
 
 #### Combining Tweets into Comprehensive Dataset for Fine-Tuning
 *First, manually groom each xlsx file, keeping only the tweets that reflect given party affiliation.<br>I chose to keep first 100 party-relevant tweets for each xlsx file/chosen twitter account.*<br><br>
-As noted, `twitter-scraper`'s `get_tweets()` implements the functionality for scraping tweets from one twitter profile. Fine-tuning requires one .tsv file of full corpus.<br>
+As noted, `twitter-scraper`'s `get_tweets()` implements the functionality for scraping tweets from one twitter profile. Fine-tuning requires one tsv file of the full corpus.<br>
 To do so:
 <ol>
-<li>Manually gather tweets from each file in <code>twitter_scraper/scrubbed_tweets</code> and copy into one xlsx file (after manually grooming)</li>
+<li>Manually gather tweets from each file in <code>twitter-scraper/scrubbed_tweets</code>. After, copy all tweets into one file</li>
 <li>Convert the resulting xlsx file to <code>train.tsv</code>
   <ul><li>I used <a href="https://products.groupdocs.app/conversion/xlsx-to-tsv">this one</a></li></ul>
 </li>
@@ -76,23 +76,23 @@ python3 run_glue.py --data_dir data --model_type albert --model_name_or_path alb
 
 1. Set name of folder where model files are stored. I.e. in initialization of SentimentAnalyzer
     class, set `path` equal to the path indicated in `output_dir` of fine-training command. In case
-    above: `path='../results/albert/output'`.
+    above: `path='output'`.
 2. Run `api.py` file:
     Set text on line 89 of `api.py` to the tweet to predict on and run `api.py` directly.
 
-```
-python3 api.py
-```
+  ```
+  python3 api.py
+  ```
 
-OR via interactive shell. Shown in green with sample tweet from [@realDonaldTrump](https://twitter.com/realDonaldTrump/status/1239201055315025920)
+  OR via interactive shell. Shown in green with sample tweet from [@realDonaldTrump](https://twitter.com/realDonaldTrump/status/1239201055315025920)
 
-```
-python3
->>> from api import SentimentAnalyzer
->>> classifier = SentimentAnalyzer ()
->>> print(classifier.predict(’Amazing how the Fake News never covers this. No Interest
-on Student Loans. The Dems are just talk!’))
-```
+  ```
+  python3
+  >>> from api import SentimentAnalyzer
+  >>> classifier = SentimentAnalyzer ()
+  >>> print(classifier.predict(’Amazing how the Fake News never covers this. No Interest
+  on Student Loans. The Dems are just talk!’))
+  ```
 
 ## Results
 #### Chosen Dataset for Fine-Tuning
