@@ -106,7 +106,7 @@ Below are the twitter accounts scraped and used for fine-tuning:
 
 Tweets were scraped on 03/23/20 with the exception of Republicans Ben Carson and Scott Walker, whose tweets were scraped on 03/25/20.
 
-In dataset (i.e. `data/train.tsv`), rows/tweets were made by corresponding twitter user:
+Dataset can be found via path: `Albert-Sentiment-Analysis/data/train.tsv`. Rows/tweets were made by corresponding twitter user:
 | rows/tweets | author of tweets |
 | :---: | ----- |
 | 2 - 101 | [@BarackObama](https://twitter.com/BarackObama) |
@@ -120,6 +120,7 @@ In dataset (i.e. `data/train.tsv`), rows/tweets were made by corresponding twitt
 
 #### Predictions via Fine-Tuned Model
 ###### \*0 for Democrat, 1 for Republican\*
+Results can be found in `results/results_final.xlsx`
 
 tweet | tweeter (link) | topic | actual | predicted | correct? | confidence
 ------- | :----:| :----: | :---: | :---: | :---: | :----:
