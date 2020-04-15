@@ -7,7 +7,7 @@
 
 `twitter-scraper`'s `get_tweets()`:
 - scrapes tweets from specified twitter profile (trimming links/images from tweets)
-- xlsx file of scraped tweets is put into `results/twitter/scrubbed_tweets` directory
+- xlsx file of scraped tweets is put into `twitter-scraper/scrubbed_tweets` directory
   - NOTE: each scraped profile has own xlsx file (**not** combined tsv file fine-tuning requires)
   - NOTE: neutral/irrelevant tweets are still admitted. For accuracy of model, **manually groom resulting xlsx files**, keeping only tweets that reflect respective party affiliation.
 
